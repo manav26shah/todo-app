@@ -2,8 +2,6 @@ import { InputBase, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import { makeStyles } from '@mui/styles';
 import { MoreHoriz } from '@mui/icons-material';
-import { flexbox } from '@mui/system';
-
 
 const useStyle = makeStyles(theme =>({
   editableTitleContainer:{
@@ -11,15 +9,20 @@ const useStyle = makeStyles(theme =>({
     display: "flex",
   },
   editableTitle:{
-    flexGrow: "1",
+    flexGrow: 1,
+    fontSize: "1.2rem",
+    fontWeight: "bold",
   },
   input:{
-    margin: "15px", 
+    fontSize: "1.2rem",
+    fontWeight: "bold",
+    margin: "10px", 
+    padding: "10px",
     "&:focus":{
       background:"#ddd",
     }
   }
-}));
+}));  
 
 const Title = () => {
   const [open, setOpen] = useState(false);
@@ -28,7 +31,9 @@ const Title = () => {
     <div>
       {open?(
         <div>
-          <InputBase value=" todo"
+          <InputBase 
+            autoFocus
+            value=" todo"
             inputProps={{
               className: classes.input,
             }}
